@@ -4,6 +4,12 @@ html{
 
 body{
   margin: 10px;
+  background-attachment: fixed; /* Parallax effect */
+  background-image: url(../images/background1.jpg);      /* Your code here - Link to header.jpg in the images folder */
+  background-position: center;  /* Parallax effect */
+  background-repeat: no-repeat; /* Parallax effect */
+  background-size: cover;       /* Parallax effect */
+  /* height: 400px;                /* Parallax effect */ */
 }
 header{
   font-family: "Geneva Regular", Arial, "Times New Roman";
@@ -72,6 +78,11 @@ nav a:hover{
   background-color: yellow;
   text-decoration: underline;
 }
+ p{
+  background-color: rgba(255, 255, 255, .8);
+  border: solid 10px black;
+  padding: 10px
+}
 #about-grid{
   display:grid;
   grid-template-columns: 95vw;
@@ -100,6 +111,9 @@ nav a:hover{
   grid-row: 3 /span 1;
   text-align: center;
   text-indent: 0;
+
+  align-self: start;
+
 }
 
 #gallery-flex{
@@ -136,7 +150,7 @@ nav a:hover{
 .project-grid{
   display: grid;
   grid-template-columns: 95vw;
-
+  grid-row-gap: 15px;
 }
 .project-grid h2{
   text-align: center;
@@ -150,9 +164,7 @@ nav a:hover{
   width: 100%;
   height: 100%;
 }
-p{
-  text-indent: 50px;
-}
+
 
 #p1-head{
   grid-column: 1/span 1;
@@ -202,9 +214,18 @@ p{
   grid-column: 1 / span 1;
   grid-row: 11 / span 1;
 }
-#p4-deets{
+#p4-deets1{
   grid-column: 1/span 1;
   grid-row: 12 / span 1;
+}
+#command{
+  grid-column: 1/span 1;
+  grid-row: 13 / span 1;
+
+}
+#p4-deets2{
+  grid-column: 1/span 1;
+  grid-row: 14/ span 1;
 }
 footer{
   background: black;
@@ -219,6 +240,11 @@ footer{
 
 
 @media screen and (min-width: 700px){
+  .stephen_senior img{
+    max-height: 60vh;
+    overflow: hidden;
+
+  }
   #gallery-flex{
     display:flex;
     flex-direction: row;
@@ -233,6 +259,37 @@ footer{
 
 }
 @media screen and (min-width: 900px){
+
+  #about-grid{
+    grid-template-columns: 46vw 48vw;
+    grid-template-rows:auto auto;
+    grid-column-gap: 15px;
+
+  }
+  .stephen_senior{
+    grid-column: 1/span 1;
+    grid-row: 1/ span 2;
+    justify-self: end;
+  }
+  .stephen_senior img{
+    max-height: 40vh;
+    overflow: hidden;
+
+  }
+  #about-grid > h2{
+    text-align: center;
+    font-size: 2em;
+    grid-column: 2 / span 1;
+    grid-row: 1 /span 1;
+    align-self: end;
+  }
+  #about-grid > p{
+    font-size: 1.3em;
+    grid-column: 2 / span 1;
+    grid-row: 2 /span 1;
+    text-align: center;
+    text-indent: 0;
+  }
   #gallery-flex img{
     max-width: 30vw;
   }
@@ -276,7 +333,7 @@ footer{
   }
   .p2-img{
     grid-column: 1 / span 1;
-    grid-row: 3 / span 2;
+    grid-row: 4 / span 1;
     align-self: center;
   }
   #p2-deets{
@@ -290,7 +347,7 @@ footer{
   }
   .p3-img{
     grid-column: 2 / span 1;
-    grid-row: 5 / span 2;
+    grid-row: 6/ span 1;
   }
   #p3-deets{
     grid-column: 1/span 1;
@@ -303,31 +360,42 @@ footer{
   }
   .p4-img{
     grid-column: 1 / span 1;
-    grid-row: 7 / span 2;
+    grid-row: 8 / span 1;
   }
   #p4-deets1{
     grid-column: 2/span 1;
     grid-row: 8 / span 1;
   }
-  #command-head{
-    grid-column: 1/span 1;
-    grid-row: 9 / span 1;
-  }
   #command{
     grid-column: 1/span 2;
-    grid-row: 10 / span 1;
+    grid-row: 9 / span 1;
     text-indent: 0;
-
   }
   #p4-deets2{
     grid-column: 1/span 2;
-    grid-row: 11/ span 1;
+    grid-row: 10/ span 1;
 
   }
 
-  #p4-deets3{
-    grid-column: 1/span 2;
-    grid-row: 12 / span 1;
+}
+@media screen and (prefers-reduced-motion: reduce){
+  html{
+      scroll-behavior: auto; /* Removes scroll animation */
+
   }
 
+  .skip a{
+    background: white;
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: -40px;
+    -webkit-transition: default;
+    transition: default;
+    z-index: 1;
+  }
+
+  .skip a:focus{
+    top:0;
+  }
 }
